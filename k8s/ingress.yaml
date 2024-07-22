@@ -6,7 +6,7 @@ metadata:
     cert-manager.io/cluster-issuer: letsencrypt-prod
 spec:
   rules:
-  - host: wisecow.local
+  - host: 192.168.49.2.nip.io
     http:
       paths:
       - path: /
@@ -18,5 +18,5 @@ spec:
               number: 80
   tls:
   - hosts:
-    - wisecow.local
+    - 192.168.49.2.nip.io
     secretName: wisecow-tls
