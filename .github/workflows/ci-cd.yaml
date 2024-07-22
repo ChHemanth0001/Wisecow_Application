@@ -38,7 +38,7 @@ jobs:
     - name: Setup kubectl
       uses: azure/setup-kubectl@v3
       with:
-        version: '1.21.0'
+        version: 'latest'
 
     - name: Deploy to Kubernetes
       env:
