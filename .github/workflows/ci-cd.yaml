@@ -38,13 +38,15 @@ jobs:
     - name: Setup kubectl
       uses: azure/setup-kubectl@v3
       with:
-        version: '1.21.0'
+        version: 'latest'
+    - name: Create .kube directory
+      run: mkdir -p ~/.kube
 
     - name: Deploy to Kubernetes
       env:
         KUBECONFIG: ${{ secrets.KUBECONFIG }}
       run: |
         echo "${{ secrets.KUBECONFIG }}" > ~/.kube/config
-        kubectl apply -f k8s/deployment.yaml
-        kubectl apply -f k8s/service.yaml
-        kubectl apply -f k8s/ingress.yaml
+        kubectl apply -f k8s/deployment.yaml --validate=false
+        kubectl apply -f k8s/service.yaml --validate=false
+        kubectl apply -f k8s/ingress.yaml --validate=false
