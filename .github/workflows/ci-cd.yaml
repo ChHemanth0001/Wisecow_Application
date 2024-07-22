@@ -26,7 +26,7 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         push: true
-        tags: your_dockerhub_username/wisecow:latest
+        tags: dockerhub_username/wisecow:latest
 
   deploy:
     runs-on: ubuntu-latest
